@@ -292,7 +292,7 @@
       height:100dvh; max-height:100dvh; min-height:0;
       padding:3px 12px;
       display:grid;
-      grid-template-rows:auto auto auto minmax(220px, 44dvh) auto auto;
+      grid-template-rows:auto auto auto minmax(0, 1fr) auto auto;
       gap:3px;
       align-content:start;
       overflow:hidden;
@@ -333,14 +333,14 @@
     .power-btn { padding:6px 7px; font-size:.7rem; }
     footer { min-height:0; margin:0; font-size:.5rem; line-height:1; }
     @media (max-height:760px) {
-      #game-wrapper { grid-template-rows:auto auto auto minmax(190px, 40dvh) auto auto; gap:2px; }
+      #game-wrapper { grid-template-rows:auto auto auto minmax(0, 1fr) auto auto; gap:2px; }
       .brand-mark { display:none; }
       h1 { font-size:1rem; }
       .stats { padding:3px 7px; }
       .top-actions { margin-top:2px; }
     }
     @media (max-height:620px) {
-      #game-wrapper { grid-template-rows:auto auto auto minmax(170px, 36dvh) auto auto; padding:2px 8px; }
+      #game-wrapper { grid-template-rows:auto auto auto minmax(0, 1fr) auto auto; padding:2px 8px; }
       .progress-shell { display:none; }
       footer { display:none; }
     }
