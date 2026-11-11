@@ -278,62 +278,81 @@
     #level-progress { height:100%; width:0%; border-radius:inherit; background:linear-gradient(90deg,#42d9ff,#7b7dff,#ffcf70); box-shadow:0 0 12px rgba(83,205,255,.6); transition:width .35s ease; }
 
   
-    /* Ajuste móvil: el tablero comparte la altura disponible y no tapa controles. */
+    /* Diseño móvil en cuadrícula: reserva espacio fijo para cabecera y controles. */
     html, body {
       width: 100%;
       height: 100%;
-      min-height: 100%;
+      min-height: 0;
+      margin: 0;
       overflow: hidden;
     }
     body {
-      min-height: 100dvh;
       height: 100dvh;
-      justify-content: flex-start;
-      align-items: center;
-      padding-top: max(4px, env(safe-area-inset-top));
-      padding-bottom: max(4px, env(safe-area-inset-bottom));
+      min-height: 0;
+      padding: 0;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
     }
     #game-wrapper {
-      height: 100dvh;
+      width: 100%;
+      max-width: 480px;
+      height: 100%;
       max-height: 100dvh;
       min-height: 0;
-      display: flex;
-      flex-direction: column;
+      padding: max(3px, env(safe-area-inset-top)) 12px max(3px, env(safe-area-inset-bottom));
+      display: grid;
+      grid-template-rows: auto auto auto minmax(0, 1fr) auto auto;
+      gap: 4px;
       overflow: hidden;
-      padding: 6px 12px;
     }
-    header { flex: 0 0 auto; margin-bottom: 5px; }
-    .top-actions { margin-top: 6px; }
-    .icon-btn { padding: 7px 10px; }
-    .stats { flex: 0 0 auto; margin: 5px 0 7px; padding: 7px 12px; }
-    .progress-shell { flex: 0 0 auto; margin-bottom: 6px; }
+    header { min-height: 0; margin: 0; }
+    .brand-mark { margin-bottom: 2px; }
+    h1 { font-size: clamp(1rem, 4.7vw, 1.5rem); line-height: 1.02; }
+    .top-actions { margin-top: 5px; }
+    .icon-btn { padding: 6px 9px; font-size: .74rem; }
+    .stats { min-height: 0; margin: 0; padding: 5px 10px; }
+    .progress-shell { min-height: 0; margin: 0 2px; padding: 0 3px; }
+    .progress-meta { margin-bottom: 3px; }
+    .progress-track { height: 5px; }
     #canvas-container {
-      flex: 1 1 auto;
-      min-height: 0;
+      position: relative;
       width: 100%;
+      height: 100%;
+      min-height: 0;
+      min-width: 0;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
     #gameCanvas {
       display: block;
-      width: 100%;
-      height: auto;
+      height: 100%;
+      width: auto;
       max-height: 100%;
+      max-width: 100%;
+      aspect-ratio: 400 / 620;
       object-fit: contain;
       flex: 0 1 auto;
+      touch-action: none;
     }
-    .power-row { flex: 0 0 auto; margin-top: 5px; }
-    footer { flex: 0 0 auto; margin-top: 5px; }
+    .power-row { min-height: 0; margin: 0; gap: 6px; }
+    .goal-chip { padding: 4px 6px; min-width: 58px; }
+    .power-btn { padding: 7px 8px; font-size: .74rem; }
+    footer { min-height: 0; margin: 0; font-size: .55rem; }
     @media (max-height: 760px) {
-      #game-wrapper { padding-top: 3px; padding-bottom: 3px; }
-      .brand-mark { margin-bottom: 2px; }
-      h1 { font-size: clamp(1rem, 4.5vw, 1.4rem); }
-      .stats { padding: 5px 10px; }
-      .progress-meta { margin-bottom: 3px; }
-      .progress-track { height: 5px; }
-      .power-row { margin-top: 3px; }
-      .goal-chip { padding: 4px 6px; }
+      #game-wrapper { gap: 3px; padding-top: 2px; padding-bottom: 2px; }
+      .brand-kicker { letter-spacing: 2px; }
+      .stats { padding: 4px 8px; }
+      .goal-chip { padding: 3px 5px; }
+    }
+    @media (max-height: 620px) {
+      .brand-mark { display: none; }
+      h1 { font-size: 1rem; }
+      .top-actions { margin-top: 2px; }
+      .stats .label { font-size: .58rem; }
+      .power-row, footer { font-size: .65rem; }
     }
 
   </style>
