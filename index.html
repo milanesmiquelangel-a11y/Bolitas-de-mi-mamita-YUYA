@@ -277,6 +277,65 @@
     .progress-track { height:7px; overflow:hidden; border-radius:99px; background:rgba(255,255,255,.12); box-shadow:inset 0 1px 3px rgba(0,0,0,.3); }
     #level-progress { height:100%; width:0%; border-radius:inherit; background:linear-gradient(90deg,#42d9ff,#7b7dff,#ffcf70); box-shadow:0 0 12px rgba(83,205,255,.6); transition:width .35s ease; }
 
+  
+    /* Ajuste móvil: el tablero comparte la altura disponible y no tapa controles. */
+    html, body {
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      overflow: hidden;
+    }
+    body {
+      min-height: 100dvh;
+      height: 100dvh;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: max(4px, env(safe-area-inset-top));
+      padding-bottom: max(4px, env(safe-area-inset-bottom));
+    }
+    #game-wrapper {
+      height: 100dvh;
+      max-height: 100dvh;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 6px 12px;
+    }
+    header { flex: 0 0 auto; margin-bottom: 5px; }
+    .top-actions { margin-top: 6px; }
+    .icon-btn { padding: 7px 10px; }
+    .stats { flex: 0 0 auto; margin: 5px 0 7px; padding: 7px 12px; }
+    .progress-shell { flex: 0 0 auto; margin-bottom: 6px; }
+    #canvas-container {
+      flex: 1 1 auto;
+      min-height: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #gameCanvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 100%;
+      object-fit: contain;
+      flex: 0 1 auto;
+    }
+    .power-row { flex: 0 0 auto; margin-top: 5px; }
+    footer { flex: 0 0 auto; margin-top: 5px; }
+    @media (max-height: 760px) {
+      #game-wrapper { padding-top: 3px; padding-bottom: 3px; }
+      .brand-mark { margin-bottom: 2px; }
+      h1 { font-size: clamp(1rem, 4.5vw, 1.4rem); }
+      .stats { padding: 5px 10px; }
+      .progress-meta { margin-bottom: 3px; }
+      .progress-track { height: 5px; }
+      .power-row { margin-top: 3px; }
+      .goal-chip { padding: 4px 6px; }
+    }
+
   </style>
 <link rel="manifest" href="./manifest.webmanifest"><meta name="theme-color" content="#17132f"><link rel="icon" href="./icon.svg"></head>
 <body>
