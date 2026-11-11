@@ -1,1 +1,13 @@
-{"name":"Las Bolitas de Mi Mamita YUYA","short_name":"Bolitas YUYA","description":"Un juego hecho con cariño para jugar en familia.","lang":"es","start_url":"./","scope":"./","display":"standalone","orientation":"portrait","background_color":"#0f0c29","theme_color":"#17132f","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
+{
+  "name": "Las Bolitas de Mi Mamita YUYA",
+  "short_name": "Bolitas YUYA",
+  "description": "Un juego hecho con cariño para jugar en familia.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f0c29",
+  "theme_color": "#17132f",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
